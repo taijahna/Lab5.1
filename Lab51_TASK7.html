@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+          <h4>ЛР5.1 Завдання 7</h4>
+          <p>
+	    Напиши клас Client який створює об'єкт
+	 з ​​властивостями login email
+	 Оголоси приватні властивості #login #email,
+	доступ до яких зроби через геттер та сеттер login email
+ 
+	</p>
+	<pre>
+	         class Client {
+		  #login;
+		  #email;
+
+		  constructor(login, email) {
+		    this.#login = login;
+		    this.#email = email;
+		  }
+
+		  get login() {
+		    return this.#login;
+		  }
+
+		  set login(newLogin) {
+		    this.#login = newLogin;
+		  }
+
+		  get email() {
+		    return this.#email;
+		  }
+
+		  set email(newEmail) {
+		    this.#email = newEmail;
+		  }
+		}
+
+		let client = new Client("userLogin", "userEmail@example.com");
+
+		console.log(client.login); // "userLogin"
+		console.log(client.email); // "userEmail@example.com"
+
+		client.login = "newUserLogin";
+		client.email = "newUserEmail@example.com";
+
+		console.log(client.login); // "newUserLogin"
+		console.log(client.email); // "newUserEmail@example.com"
+	</pre>
+
+	  <script>
+	          class Client {
+		  #login;
+		  #email;
+
+		  constructor(login, email) {
+		    this.#login = login;
+		    this.#email = email;
+		  }
+
+		  get login() {
+		    return this.#login;
+		  }
+
+		  set login(newLogin) {
+		    this.#login = newLogin;
+		  }
+
+		  get email() {
+		    return this.#email;
+		  }
+
+		  set email(newEmail) {
+		    this.#email = newEmail;
+		  }
+		}
+
+		// Створення нового об'єкта класу Client
+		let client = new Client("userLogin", "userEmail@example.com");
+
+		// Виведення властивостей об'єкта в консоль
+		console.log(client.login); // "userLogin"
+		console.log(client.email); // "userEmail@example.com"
+
+		// Зміна властивостей об'єкта
+		client.login = "newUserLogin";
+		client.email = "newUserEmail@example.com";
+
+		// Виведення змінених властивостей об'єкта в консоль
+		console.log(client.login); // "newUserLogin"
+		console.log(client.email); // "newUserEmail@example.com"
+	  </script>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+          <h4>ЛР5.1 Завдання 5</h4>
+          <p>
+    	    Запишіть функцію, яка приймає массив об'єктів і повертає новий
+            массив Зробіть знижку 20 % на всі фрукти у масиві Надайте ід для
+            кожного продукту const fruits = [ { name: "apple", price: 200 }, {
+            name: "orange", price: 300 }, { name: "grapes", price: 750 }, ];
+	</p>
+	<pre>
+	 const button = document.getElementById('myButton');
+
+	    button.addEventListener('click', () => {
+	      alert('Ви натиснули кнопку!');
+	    });
+	</pre>
+
+	  <script>
+	        const fruits = [
+		  { name: "apple", price: 200 },
+		  { name: "orange", price: 300 },
+		  { name: "grapes", price: 750 },
+		];
+
+		function applyDiscountAndAddId(fruits) {
+		  return fruits.map((fruit, index) => ({
+		    id: index + 1,
+		    name: fruit.name,
+		    price: fruit.price * 0.8, 
+		  }));
+		}
+
+		const newFruits = applyDiscountAndAddId(fruits);
+
+		console.log(newFruits);
+	  </script>
+      </div>
+    </main>
+  </body>

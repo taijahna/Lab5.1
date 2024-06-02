@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+          <h4>ЛР5.1 Завдання 9</h4>
+          <p>
+    Поверніть об'єкт, в якому вказано кількість тегів.
+    Очікуваний результат {js: 3, nodejs: 3, html: 2, css: 2, react: 2}
+	</p>
+	<pre>
+	 const tweets = [
+              { id: "000", likes: 5, tags: ["js", "nodejs"] },
+              { id: "001", likes: 2, tags: ["html", "css"] },
+              { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+              { id: "003", likes: 8, tags: ["css", "react"] },
+              { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+          ];
+
+          function countTags(tweets) {
+              const tagsCount = {};
+              for (const tweet of tweets) {
+                  for (const tag of tweet.tags) {
+                      if (tagsCount[tag]) {
+                          tagsCount[tag]++;
+                      } else {
+                          tagsCount[tag] = 1;
+                      }
+                  }
+              }
+              return tagsCount;
+          }
+
+          console.log(countTags(tweets)); // { js: 3, nodejs: 3, html: 2, css: 2, react: 2 }
+	</pre>
+  
+	  <script>
+	            const tweets = [
+			    { id: "000", likes: 5, tags: ["js", "nodejs"] },
+			    { id: "001", likes: 2, tags: ["html", "css"] },
+			    { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+			    { id: "003", likes: 8, tags: ["css", "react"] },
+			    { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+			];
+
+			function countTags(tweets) {
+			    const tagsCount = {};
+			    for (const tweet of tweets) {
+				for (const tag of tweet.tags) {
+				    if (tagsCount[tag]) {
+					tagsCount[tag]++;
+				    } else {
+					tagsCount[tag] = 1;
+				    }
+				}
+			    }
+			    return tagsCount;
+			}
+
+			console.log(countTags(tweets)); // { js: 3, nodejs: 3, html: 2, css: 2, react: 2 }
+	  </script>
+      </div>
+    </main>
+  </body>
+</html>

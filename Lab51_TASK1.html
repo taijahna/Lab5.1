@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+          <h4>ЛР5.1 Завдання 1</h4>
+          <p>
+    Напишіть наступні функції:
+	createProduct(obj, callback) - приймає об'єкт товару без id, а також коллбек. Функція створює об'єкт товару, додаючи йому унікальний ідентифікатор у властивість id та викликає коллбек передаючи йому створений об'єкт.
+
+	logProduct(product) - колббек що приймає об'єкт продукту і логуючий його в консоль
+	logTotalPrice(product) - колббек, що приймає об'єкт продукту і логіює загальну вартість товару в консоль
+	</p>
+	<pre>
+	 function createProduct(obj, callback) {
+              const id = Math.floor(Math.random() * 10000);
+              const product = { ...obj, id };
+              callback(product);
+            }
+          
+            function logProduct(product) {
+               console.log(product);
+            }
+          
+            function logTotalPrice(product) {
+                console.log(`Загальна вартість товару: ${product.price * product.quantity}`);
+            }
+
+            const product = { name: 'Огірок', price: 123, quantity: 10 };
+            createProduct(product, logProduct); 
+            createProduct(product, logTotalPrice);  
+	</pre>
+	
+	  <script>
+	    function createProduct(obj, callback) {
+              // Створюємо унікальний ідентифікатор для продукту
+              const id = Math.floor(Math.random() * 10000);
+              // Додаємо ідентифікатор до об'єкта продукту
+              const product = { ...obj, id };
+              // Викликаємо колбек з об'єктом продукту
+              callback(product);
+            }
+          
+            function logProduct(product) {
+               console.log(product);
+            }
+          
+            function logTotalPrice(product) {
+                console.log(`Загальна вартість товару: ${product.price * product.quantity}`);
+            }
+
+            const product = { name: 'Огірок', price: 123, quantity: 10 };
+            createProduct(product, logProduct);  // Логує об'єкт продукту
+            createProduct(product, logTotalPrice);  // Логує загальну вартість товару
+	  </script>
+      </div>
+    </main>
+  </body>
+</html>

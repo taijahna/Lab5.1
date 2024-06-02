@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+          <h4>ЛР 5.1 Завдання 3</h4>
+          <p>
+    З об'єкту medicines потрібно отримати масив   в якому будуть лише назви препаратів.
+
+	З масиву  потрібно прибрати медикаменти , в яких строк зберігання  уже пройшов . У новому масиві відсортувати медикаменти  у хронологічному порядку.
+	  Результат вивести у консоль.
+	Застосувати стрілочні функції
+	</p>
+	<pre>
+     const medicines = {
+	Агалгін: new Date("2022-05-01"),
+	Ношпа: new Date("2025-07-02"),
+	Альфахолін: new Date("2024-12-21"),
+	Аспірин: new Date("2022-08-15"),
+	Аспаркам: new Date("2024-04-18"),
+      };
+
+      const names = Object.keys(medicines);
+
+      console.log("Назви препаратів:", names);
+
+      const validMedicines = Object.entries(medicines)
+	.filter(([name, date]) => date > new Date())
+	.map(([name, date]) => ({ name, date }));
+
+      console.log("Дійсні медикаменти:", validMedicines);
+
+      const sortedMedicines = validMedicines.sort((a, b) => a.date - b.date);
+
+      console.log("Відсортовані медикаменти:", sortedMedicines);
+	</pre>
+
+	  <script>
+      const medicines = {
+	Агалгін: new Date("2022-05-01"),
+	Ношпа: new Date("2025-07-02"),
+	Альфахолін: new Date("2024-12-21"),
+	Аспірин: new Date("2022-08-15"),
+	Аспаркам: new Date("2024-04-18"),
+      };
+
+      const names = Object.keys(medicines);
+
+      console.log("Назви препаратів:", names);
+
+      const validMedicines = Object.entries(medicines)
+	.filter(([name, date]) => date > new Date())
+	.map(([name, date]) => ({ name, date }));
+
+      console.log("Дійсні медикаменти:", validMedicines);
+
+      const sortedMedicines = validMedicines.sort((a, b) => a.date - b.date);
+
+      console.log("Відсортовані медикаменти:", sortedMedicines);
+	  </script>
+      </div>
+    </main>
+  </body>
+</html>
