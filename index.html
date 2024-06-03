@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+          <h4>ЛР5.1 Завдання 1</h4>
+          <p>
+    Напишіть наступні функції:
+	createProduct(obj, callback) - приймає об'єкт товару без id, а також коллбек. Функція створює об'єкт товару, додаючи йому унікальний ідентифікатор у властивість id та викликає коллбек передаючи йому створений об'єкт.
+
+	logProduct(product) - колббек що приймає об'єкт продукту і логуючий його в консоль
+	logTotalPrice(product) - колббек, що приймає об'єкт продукту і логіює загальну вартість товару в консоль
+	</p>
+	<pre>
+	 function createProduct(obj, callback) {
+              const id = Math.floor(Math.random() * 10000);
+              const product = { ...obj, id };
+              callback(product);
+            }
+          
+            function logProduct(product) {
+               console.log(product);
+            }
+          
+            function logTotalPrice(product) {
+                console.log(`Загальна вартість товару: ${product.price * product.quantity}`);
+            }
+
+            const product = { name: 'Огірок', price: 123, quantity: 10 };
+            createProduct(product, logProduct); 
+            createProduct(product, logTotalPrice);  
+	</pre>
+	
+	  <script>
+	    function createProduct(obj, callback) {
+              const id = Math.floor(Math.random() * 10000);
+              const product = { ...obj, id };
+              callback(product);
+            }
+          
+            function logProduct(product) {
+               console.log(product);
+            }
+          
+            function logTotalPrice(product) {
+                console.log(`Загальна вартість товару: ${product.price * product.quantity}`);
+            }
+
+            const product = { name: 'Огірок', price: 123, quantity: 10 };
+            createProduct(product, logProduct); 
+            createProduct(product, logTotalPrice); 
+	  </script>
+
+<h4>ЛР 5.1 Завдання 3</h4>
+<p>
+З об'єкту medicines потрібно отримати масив   в якому будуть лише назви препаратів.
+
+З масиву  потрібно прибрати медикаменти , в яких строк зберігання  уже пройшов . У новому масиві відсортувати медикаменти  у хронологічному порядку.
+  Результат вивести у консоль.
+Застосувати стрілочні функції
+</p>
+<pre>
+const medicines = {
+Агалгін: new Date("2022-05-01"),
+Ношпа: new Date("2025-07-02"),
+Альфахолін: new Date("2024-12-21"),
+Аспірин: new Date("2022-08-15"),
+Аспаркам: new Date("2024-04-18"),
+};
+
+const names = Object.keys(medicines);
+
+console.log("Назви препаратів:", names);
+
+const validMedicines = Object.entries(medicines)
+.filter(([name, date]) => date > new Date())
+.map(([name, date]) => ({ name, date }));
+
+console.log("Дійсні медикаменти:", validMedicines);
+
+const sortedMedicines = validMedicines.sort((a, b) => a.date - b.date);
+
+console.log("Відсортовані медикаменти:", sortedMedicines);
+</pre>
+
+<script>
+const medicines = {
+Агалгін: new Date("2022-05-01"),
+Ношпа: new Date("2025-07-02"),
+Альфахолін: new Date("2024-12-21"),
+Аспірин: new Date("2022-08-15"),
+Аспаркам: new Date("2024-04-18"),
+};
+
+const names = Object.keys(medicines);
+
+console.log("Назви препаратів:", names);
+
+const validMedicines = Object.entries(medicines)
+.filter(([name, date]) => date > new Date())
+.map(([name, date]) => ({ name, date }));
+
+console.log("Дійсні медикаменти:", validMedicines);
+
+const sortedMedicines = validMedicines.sort((a, b) => a.date - b.date);
+
+console.log("Відсортовані медикаменти:", sortedMedicines);
+</script>
+
+<h4>ЛР5.1 Завдання 5</h4>
+          <p>
+    	    Запишіть функцію, яка приймає массив об'єктів і повертає новий
+            массив Зробіть знижку 20 % на всі фрукти у масиві Надайте ід для
+            кожного продукту const fruits = [ { name: "apple", price: 200 }, {
+            name: "orange", price: 300 }, { name: "grapes", price: 750 }, ];
+	</p>
+	<pre>
+	 const button = document.getElementById('myButton');
+
+	    button.addEventListener('click', () => {
+	      alert('Ви натиснули кнопку!');
+	    });
+	</pre>
+
+	  <script>
+	        const fruits = [
+		  { name: "apple", price: 200 },
+		  { name: "orange", price: 300 },
+		  { name: "grapes", price: 750 },
+		];
+
+		function applyDiscountAndAddId(fruits) {
+		  return fruits.map((fruit, index) => ({
+		    id: index + 1,
+		    name: fruit.name,
+		    price: fruit.price * 0.8, 
+		  }));
+		}
+
+		const newFruits = applyDiscountAndAddId(fruits);
+
+		console.log(newFruits);
+	  </script>
+
+<h4>ЛР5.1 Завдання 7</h4>
+<p>
+Напиши клас Client який створює об'єкт
+ з ​​властивостями login email
+ Оголоси приватні властивості #login #email,
+доступ до яких зроби через геттер та сеттер login email
+ 
+</p>
+<pre>
+   class Client {
+#login;
+#email;
+
+constructor(login, email) {
+  this.#login = login;
+  this.#email = email;
+}
+
+get login() {
+  return this.#login;
+}
+
+set login(newLogin) {
+  this.#login = newLogin;
+}
+
+get email() {
+  return this.#email;
+}
+
+set email(newEmail) {
+  this.#email = newEmail;
+}
+}
+
+let client = new Client("userLogin", "userEmail@example.com");
+
+console.log(client.login); // "userLogin"
+console.log(client.email); // "userEmail@example.com"
+
+client.login = "newUserLogin";
+client.email = "newUserEmail@example.com";
+
+console.log(client.login); // "newUserLogin"
+console.log(client.email); // "newUserEmail@example.com"
+</pre>
+
+<script>
+    class Client {
+#login;
+#email;
+
+constructor(login, email) {
+  this.#login = login;
+  this.#email = email;
+}
+
+get login() {
+  return this.#login;
+}
+
+set login(newLogin) {
+  this.#login = newLogin;
+}
+
+get email() {
+  return this.#email;
+}
+
+set email(newEmail) {
+  this.#email = newEmail;
+}
+}
+
+let client = new Client("userLogin", "userEmail@example.com");
+
+console.log(client.login); 
+console.log(client.email); 
+
+client.login = "newUserLogin";
+client.email = "newUserEmail@example.com";
+
+console.log(client.login);
+console.log(client.email); 
+</script>
+
+<h4>ЛР5.1 Завдання 9</h4>
+<p>
+Поверніть об'єкт, в якому вказано кількість тегів.
+Очікуваний результат {js: 3, nodejs: 3, html: 2, css: 2, react: 2}
+</p>
+<pre>
+const tweets = [
+    { id: "000", likes: 5, tags: ["js", "nodejs"] },
+    { id: "001", likes: 2, tags: ["html", "css"] },
+    { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+    { id: "003", likes: 8, tags: ["css", "react"] },
+    { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+];
+
+function countTags(tweets) {
+    const tagsCount = {};
+    for (const tweet of tweets) {
+        for (const tag of tweet.tags) {
+            if (tagsCount[tag]) {
+                tagsCount[tag]++;
+            } else {
+                tagsCount[tag] = 1;
+            }
+        }
+    }
+    return tagsCount;
+}
+
+console.log(countTags(tweets)); // { js: 3, nodejs: 3, html: 2, css: 2, react: 2 }
+</pre>
+
+<script>
+      const tweets = [
+      { id: "000", likes: 5, tags: ["js", "nodejs"] },
+      { id: "001", likes: 2, tags: ["html", "css"] },
+      { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+      { id: "003", likes: 8, tags: ["css", "react"] },
+      { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+  ];
+
+  function countTags(tweets) {
+      const tagsCount = {};
+      for (const tweet of tweets) {
+      for (const tag of tweet.tags) {
+          if (tagsCount[tag]) {
+          tagsCount[tag]++;
+          } else {
+          tagsCount[tag] = 1;
+          }
+      }
+      }
+      return tagsCount;
+  }
+
+  console.log(countTags(tweets)); // { js: 3, nodejs: 3, html: 2, css: 2, react: 2 }
+</script>
+
+<h4>ЛР5.1 Завдання 10</h4>
+<p>
+  Напишіть функцію checkBrackets(str) яка приймає рядок жс коду (someFn) і перевіряє правильність закриття дужок () {} []
+  Якщо рядок містить коректний код функція повертає true.
+  В іншому випадку повертає false
+</p>
+<pre>
+  function checkBrackets(str) {
+    const brackets = {
+      '(': ')',
+      '{': '}',
+      '[': ']'
+    };
+
+    let stack = [];
+
+    for (let char of str) {
+      if (brackets[char]) {
+        stack.push(brackets[char]);
+      } else if ([')', '}', ']'].includes(char)) {
+        if (stack.pop() !== char) {
+          return false;
+        }
+      }
+    }
+
+    return stack.length === 0;
+  }
+</pre>
+
+<script>
+  function checkBrackets(str) {
+    const brackets = {
+      '(': ')',
+      '{': '}',
+      '[': ']'
+    };
+
+    let stack = [];
+
+    for (let char of str) {
+      if (brackets[char]) {
+        stack.push(brackets[char]);
+      } else if ([')', '}', ']'].includes(char)) {
+        if (stack.pop() !== char) {
+          return false;
+        }
+      }
+    }
+
+    return stack.length === 0;
+  }
+
+  console.log(checkBrackets("()"));  // повертає true
+  console.log(checkBrackets("({})"));  // повертає true
+  console.log(checkBrackets("({)}"));  // повертає false
+  console.log(checkBrackets("({"));  // повертає false
+</script>
+    </main>
+  </body>
+</html>
